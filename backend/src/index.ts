@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+// Trigger restart for DB init
 import dotenv from 'dotenv';
 import { connectRedis } from './config/redis';
 import { initDb } from './config/db';

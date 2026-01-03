@@ -23,7 +23,7 @@ export const createShortUrl = async (req: Request, res: Response) => {
         });
     } catch (err: any) {
         if (err instanceof z.ZodError) {
-            return res.status(400).json({ error: err.errors });
+            return res.status(400).json({ error: (err as z.ZodError).issues });
         }
         if (err.message === 'Alias already taken') {
             return res.status(409).json({ error: 'Alias already taken' });
